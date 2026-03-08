@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0f;
+  color: #e5e5e5;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  cursor: none;
+  position: relative;
+}
+
+/* Subtle elegant grid background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(199, 95, 113, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(199, 95, 113, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #C75F71;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  box-shadow: 0 0 20px rgba(199, 95, 113, 0.5);
+}
+
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #C75F71;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transition: all 0.05s ease;
+  box-shadow: 0 0 10px rgba(199, 95, 113, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C75F71;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B04F61;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(237, 64, 89, 0.15);
+  box-shadow: 
+    0 8px 32px 0 rgba(237, 64, 89, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+}
+
+.glass-effect:hover {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 12px 48px 0 rgba(237, 64, 89, 0.18),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(138, 252, 93, 0.3);
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(138, 252, 93, 0.05), rgba(222, 54, 246, 0.05));
+  border: 1px solid transparent;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #8AFC5D, #E9793A, #DE36F6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glossy card effect with grid pattern */
+.glossy-card {
+  background: 
+    linear-gradient(
+      135deg,
+      rgba(25, 25, 35, 0.9) 0%,
+      rgba(18, 18, 28, 0.95) 50%,
+      rgba(25, 25, 35, 0.9) 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(199, 95, 113, 0.03) 24px,
+      rgba(199, 95, 113, 0.03) 25px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      rgba(199, 95, 113, 0.03) 24px,
+      rgba(199, 95, 113, 0.03) 25px
+    );
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(199, 95, 113, 0.2);
+  box-shadow: 
+    0 15px 50px 0 rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 20px 0 rgba(199, 95, 113, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glossy shine effect on hover */
+.glossy-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(199, 95, 113, 0.1) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s;
+  opacity: 0;
+}
+
+.glossy-card:hover::before {
+  left: 100%;
+  opacity: 1;
+}
+
+.glass-effect {
+  background: rgba(25, 25, 35, 0.7);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(199, 95, 113, 0.2);
+  box-shadow: 
+    0 10px 40px 0 rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-effect:hover {
+  background: rgba(25, 25, 35, 0.85);
+  border-color: rgba(199, 95, 113, 0.3);
+  box-shadow: 
+    0 15px 50px 0 rgba(199, 95, 113, 0.25),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
